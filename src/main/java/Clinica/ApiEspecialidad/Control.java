@@ -1,0 +1,52 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Clinica.ApiEspecialidad;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ *
+ * @author broncake
+ */
+@RestController
+@RequestMapping("/especialidad")
+public class Control {
+    @Autowired
+    private Servicio serv;
+    
+    @PostMapping("/grabar")
+    public Especialidad grabar(@RequestBody Especialidad esp){
+        return serv.grabar(esp);
+    }
+    
+    @GetMapping("/buscar/{codEsp}")
+    public Especialidad buscar(@PathVariable String codEsp){
+        return serv.buscar(codEsp);
+    }
+    
+    @GetMapping("/listar")
+    public List<Especialidad>listar(){
+        return serv.listar();
+    }
+    
+    @PutMapping("/actualizar/{id}")
+    public Especialidad actualizar(@PathVariable String codEsp,@RequestBody Especialidad esp){
+        return serv.actualizar(codEsp, esp);
+    }
+    
+    @DeleteMapping("/eliminar/{id}")
+    public void eliminar(@PathVariable String codEsp){
+        serv.eliminar(codEsp);
+    }
+}
