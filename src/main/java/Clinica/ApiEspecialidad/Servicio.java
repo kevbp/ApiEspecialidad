@@ -22,23 +22,23 @@ public class Servicio {
         return repo.save(esp);
     }
     
-    public Especialidad buscar(String codEsp){
-        return repo.findById(codEsp).orElse(null);
+    public Especialidad buscar(Long id){
+        return repo.findById(id).orElse(null);
     }
     
     public List<Especialidad> listar(){
         return repo.findAll();
     }
     
-    public Especialidad actualizar(String codEsp, Especialidad esp){
-        return repo.findById(codEsp).map(existing -> {
+    public Especialidad actualizar(Long id, Especialidad esp){
+        return repo.findById(id).map(existing -> {
             existing.setDeta(esp.getDeta());
             return repo.save(existing);
         }).orElse(null);
     }
     
-    public void eliminar(String codEsp){
-        repo.deleteById(codEsp);
+    public void eliminar(Long id){
+        repo.deleteById(id);
     }
 
 }

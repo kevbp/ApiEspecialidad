@@ -30,9 +30,9 @@ public class Control {
         return serv.grabar(esp);
     }
     
-    @GetMapping("/buscar/{codEsp}")
-    public Especialidad buscar(@PathVariable String codEsp){
-        return serv.buscar(codEsp);
+    @GetMapping("/buscar/{id}")
+    public Especialidad buscar(@PathVariable Long id){
+        return serv.buscar(id);
     }
     
     @GetMapping("/listar")
@@ -41,12 +41,12 @@ public class Control {
     }
     
     @PutMapping("/actualizar/{id}")
-    public Especialidad actualizar(@PathVariable String codEsp,@RequestBody Especialidad esp){
-        return serv.actualizar(codEsp, esp);
+    public Especialidad actualizar(@PathVariable Long id,@RequestBody Especialidad esp){
+        return serv.actualizar(id, esp);
     }
     
     @DeleteMapping("/eliminar/{id}")
-    public void eliminar(@PathVariable String codEsp){
-        serv.eliminar(codEsp);
+    public void eliminar(@PathVariable Long id){
+        serv.eliminar(id);
     }
 }

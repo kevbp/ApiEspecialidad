@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author broncake
  */
-public interface Repositorio extends JpaRepository<Especialidad, String>{
+public interface Repositorio extends JpaRepository<Especialidad, Long>{
     
 }

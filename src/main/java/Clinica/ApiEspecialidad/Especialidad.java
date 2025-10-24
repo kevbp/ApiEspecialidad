@@ -5,6 +5,8 @@
 package Clinica.ApiEspecialidad;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 /**
@@ -14,23 +16,24 @@ import jakarta.persistence.Id;
 @Entity
 public class Especialidad {
     @Id
-    private String codEsp;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String deta;
 
     public Especialidad() {
     }
 
-    public Especialidad(String codEsp, String deta) {
-        this.codEsp = codEsp;
+    public Especialidad(Long id, String deta) {
+        this.id = id;
         this.deta = deta;
     }
 
-    public String getCodEsp() {
-        return codEsp;
+    public Long getId() {
+        return id;
     }
 
-    public void setCodEsp(String codEsp) {
-        this.codEsp = codEsp;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDeta() {
@@ -40,6 +43,5 @@ public class Especialidad {
     public void setDeta(String deta) {
         this.deta = deta;
     }
-    
-    
+
 }
