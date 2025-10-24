@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  *
@@ -24,6 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class Control {
     @Autowired
     private Servicio serv;
+    
+    @Autowired
+    private RestTemplate resTem;
     
     @PostMapping("/grabar")
     public Especialidad grabar(@RequestBody Especialidad esp){
@@ -49,4 +53,12 @@ public class Control {
     public void eliminar(@PathVariable Long id){
         serv.eliminar(id);
     }
+        
+    //Listar médicos
+    @GetMapping("/listarMedicos")
+    public List<Medico>listarMedicos(){
+        String url = "http://ApiMedico/medico/listar";
+        return resTem.getForObject(url, List.class);
+    }
+    
 }
