@@ -14,7 +14,7 @@ import jakarta.persistence.Id;
  * @author kevin
  */
 @Entity
-public class Medico {
+public class MedicoDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
@@ -22,10 +22,10 @@ public class Medico {
     private String ape;
     private String spe;
 
-    public Medico() {
+    public MedicoDTO() {
     }
 
-    public Medico(String id, String nom, String ape, String spe) {
+    public MedicoDTO(String id, String nom, String ape, String spe) {
         this.id = id;
         this.nom = nom;
         this.ape = ape;

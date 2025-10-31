@@ -56,7 +56,7 @@ public class Control {
         
     //Listar médicos
     @GetMapping("/listarMedicos")
-    public List<Medico>listarMedicos(){
+    public List<MedicoDTO>listarMedicos(){
         String url = "http://ApiMedico/medico/listar";
         return resTem.getForObject(url, List.class);
     }
